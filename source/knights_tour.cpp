@@ -39,10 +39,39 @@ void KnightsTour::print() {
 //    int num_moves -   Number of valid moves found. Corresponds
 //                      to the sizes of row_moves and col_moves.
 
-void KnightsTour::get_moves(
-  int row, int col, 
-  int row_moves[], int col_moves[], int& num_moves
-) {
+void KnightsTour::get_moves(int row, int col, int row_moves[], int col_moves[], int& num_moves) {
+  int rm2 = row - 2; //Row - 2
+  int rm1 = row - 1; //Row - 1
+  int rp1 = row + 1; //Row + 1
+  int rp2 = row + 2; //Row + 2
+  int cm2 = col - 2; //Column - 2
+  int cm1 = col - 1; //Column - 1
+  int cp1 = col + 1; //Column + 1
+  int cp2 = col + 2; //Colimn + 2
+  if (rm2 > -1 && cp1 < 6) { //CW #1
+     
+  } 
+  if (rm2 > -1 && cp1 < 6) { //CW #2
+
+  }
+  if (rm2 < 6 && cp1 < 6) { //CW #3
+
+  }
+  if (rm2 < 6 && cp1 < 6) { //CW #4
+
+  }
+  if (rm2 < 6 && cp1 > -1) { //CW #5
+
+  }
+  if (rm2 < 6 && cp1 > -1) { //CW #6
+
+  }
+  if (rm2 > -1 && cp1 > -1) { //CW #7
+
+  }
+  if (rm2 > -1 && cp1 > -1) { //CW #8
+
+  }
 }
 
 // Function: move() --> Recursive

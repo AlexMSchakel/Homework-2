@@ -21,6 +21,18 @@ void KnightsTour::print() {
   cout << endl << endl;
 }
 
+bool KnightsTour::valid(int r, int c) {
+    if ((r > -1 && r < 6) && (c > -1 && c < 6))
+      if (board[r][c] == 0)  //If space is unoccupied
+        return(true);
+    return(false);
+}
+
+void KnightsTour::get_move_helper(int row, int col, int& row_moves[], int& col_moves[], int& num_moves) {
+  row_moves[num_moves] = row;
+  row_moves[num_moves] = col;
+}
+
 // Function: get_moves()
 //    Desc: Get the row and column indices of all valid
 //          knight moves reachable from position row, col.
@@ -40,38 +52,24 @@ void KnightsTour::print() {
 //                      to the sizes of row_moves and col_moves.
 
 void KnightsTour::get_moves(int row, int col, int row_moves[], int col_moves[], int& num_moves) {
-  int rm2 = row - 2; //Row - 2
-  int rm1 = row - 1; //Row - 1
-  int rp1 = row + 1; //Row + 1
-  int rp2 = row + 2; //Row + 2
-  int cm2 = col - 2; //Column - 2
-  int cm1 = col - 1; //Column - 1
-  int cp1 = col + 1; //Column + 1
-  int cp2 = col + 2; //Colimn + 2
-  if (rm2 > -1 && cp1 < 6) { //CW #1
-     
-  } 
-  if (rm2 > -1 && cp1 < 6) { //CW #2
-
-  }
-  if (rm2 < 6 && cp1 < 6) { //CW #3
-
-  }
-  if (rm2 < 6 && cp1 < 6) { //CW #4
-
-  }
-  if (rm2 < 6 && cp1 > -1) { //CW #5
-
-  }
-  if (rm2 < 6 && cp1 > -1) { //CW #6
-
-  }
-  if (rm2 > -1 && cp1 > -1) { //CW #7
-
-  }
-  if (rm2 > -1 && cp1 > -1) { //CW #8
-
-  }
+  num_moves = 0;      //Set number of moves to zero
+  
+  if (valid(row - 2, col + 1)) //CW #1
+    get_move_helper(row - 2, col + 1, row_moves[], col_moves[], num_moves++);
+  if (valid(row - 1, col + 2)) //CW #2
+    get_move_helper(row - 1, col + 2, row_moves[], col_moves[], num_moves++);
+  if (valid(row + 1, col + 2)) //CW #3
+    get_move_helper(row + 1, col + 2, row_moves[], col_moves[], num_moves++);
+  if (valid(row + 2, col + 1)) //CW #4
+    get_move_helper(row + 2, col + 1, row_moves[], col_moves[], num_moves++);
+  if (valid(row + 2, col - 1)) //CW #5
+    get_move_helper(row + 2, col - 1, row_moves[], col_moves[], num_moves++);
+  if (valid(row + 1, col - 2)) //CW #6
+    get_move_helper(row + 1, col - 2, row_moves[], col_moves[], num_moves++);
+  if (valid(row - 1, col - 2)) //CW #7
+    get_move_helper(row - 1, col - 2, row_moves[], col_moves[], num_moves++);
+  if (valid(row - 2, col - 1)) //CW #8
+    get_move_helper(row - 2, col - 1, row_moves[], col_moves[], num_moves++);
 }
 
 // Function: move() --> Recursive

@@ -11,6 +11,8 @@ public:
 private:
 	void move(int row, int col, int& m, int& num_tours);
   	void get_moves(int row, int col, int row_moves[], int col_moves[], int& num_moves);
+	bool valid(int r, int c);
+	void get_move_helper(int row, int col, int& row_moves[], int& col_moves[], int& num_moves);
 	void print();
 
 	int board_size;
